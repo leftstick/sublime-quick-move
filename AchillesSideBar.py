@@ -4,6 +4,7 @@ from string import Template
 import getpass
 import datetime
 import calendar
+from os.path import isfile
 
 class AchillesSideBarAddNgCtrlCommand(AchillesSideBarBase, sublime_plugin.WindowCommand):
 
@@ -19,6 +20,11 @@ class AchillesSideBarAddNgCtrlCommand(AchillesSideBarBase, sublime_plugin.Window
     def handle_template(self, tplStr, outputDir, input_string, fileName):
         name = input_string[0].upper() + input_string[1:]
         fileName = fileName[0].upper() + fileName[1:]
+        
+        if isfile(outputDir + '/' + fileName):
+            self.window.open_file(outputDir + '/' + fileName)
+            return
+
         tpl = Template(tplStr)
         date = datetime.datetime.now()
         ctrlStr = tpl.substitute(name=name, user=getpass.getuser(), date=calendar.month_name[date.month]+' '+str(date.day)+'th, '+str(date.year))
@@ -53,6 +59,11 @@ class AchillesSideBarAddNgDirCommand(AchillesSideBarBase, sublime_plugin.WindowC
                     dirs += s
         fileName = fileName[0].upper() + fileName[1:]
         name = input_string[0].lower() + input_string[1:]
+
+        if isfile(outputDir + '/' + fileName):
+            self.window.open_file(outputDir + '/' + fileName)
+            return
+
         tpl = Template(tplStr)
         date = datetime.datetime.now()
         dirStr = tpl.substitute(name=name, user=getpass.getuser(), date=calendar.month_name[date.month]+' '+str(date.day)+'th, '+str(date.year), dir=dirs)
@@ -77,6 +88,11 @@ class AchillesSideBarAddNgFactoryCommand(AchillesSideBarBase, sublime_plugin.Win
     def handle_template(self, tplStr, outputDir, input_string, fileName):
         name = input_string[0].upper() + input_string[1:]
         fileName = fileName[0].upper() + fileName[1:]
+
+        if isfile(outputDir + '/' + fileName):
+            self.window.open_file(outputDir + '/' + fileName)
+            return
+
         tpl = Template(tplStr)
         date = datetime.datetime.now()
         dirStr = tpl.substitute(name=name, user=getpass.getuser(), date=calendar.month_name[date.month]+' '+str(date.day)+'th, '+str(date.year))
@@ -101,6 +117,11 @@ class AchillesSideBarAddNgServiceCommand(AchillesSideBarBase, sublime_plugin.Win
     def handle_template(self, tplStr, outputDir, input_string, fileName):
         name = input_string[0].upper() + input_string[1:]
         fileName = fileName[0].upper() + fileName[1:]
+
+        if isfile(outputDir + '/' + fileName):
+            self.window.open_file(outputDir + '/' + fileName)
+            return
+
         tpl = Template(tplStr)
         date = datetime.datetime.now()
         dirStr = tpl.substitute(name=name, user=getpass.getuser(), date=calendar.month_name[date.month]+' '+str(date.day)+'th, '+str(date.year))
@@ -124,6 +145,11 @@ class AchillesSideBarAddLangCommand(AchillesSideBarBase, sublime_plugin.WindowCo
 
     def handle_template(self, tplStr, outputDir, input_string, fileName):
         fileName = fileName[0].upper() + fileName[1:]
+
+        if isfile(outputDir + '/' + fileName):
+            self.window.open_file(outputDir + '/' + fileName)
+            return
+
         tpl = Template(tplStr)
         date = datetime.datetime.now()
         dirStr = tpl.substitute(name=input_string, user=getpass.getuser(), date=calendar.month_name[date.month]+' '+str(date.day)+'th, '+str(date.year))

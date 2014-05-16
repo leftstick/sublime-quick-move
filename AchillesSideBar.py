@@ -33,7 +33,10 @@ class AchillesSideBarAddNgCtrlCommand(AchillesSideBarBase, sublime_plugin.Window
         self.window.open_file(outputDir + '/' + fileName)
 
     def is_visible(self, dirs):
-        return len(dirs) == 1 and dirs[0].endswith('controller')
+        if self.isStrictMode():
+            return len(dirs) == 1 and dirs[0].endswith('controller')
+        else:
+            return True
             
 class AchillesSideBarAddNgDirCommand(AchillesSideBarBase, sublime_plugin.WindowCommand):
 

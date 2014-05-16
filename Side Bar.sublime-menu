@@ -2,6 +2,18 @@
     "caption": "Achilles",
     "id": "achilles_side_bar",
     "children": [{
+        "caption": "New ngProject...",
+        "command": "achilles_side_bar_add_skeleton",
+        "args": {
+            "dirs": []
+        }
+    },{
+        "caption": "New ngFeature...",
+        "command": "achilles_side_bar_add_feature",
+        "args": {
+            "dirs": []
+        }
+    },{
         "caption": "New ngController...",
         "command": "achilles_side_bar_add_ng_ctrl",
         "args": {

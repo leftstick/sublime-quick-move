@@ -1,3 +1,4 @@
+import sublime
 from os.path import dirname, realpath
 
 class AchillesSideBarBase():
@@ -64,6 +65,13 @@ class AchillesSideBarBase():
 
     def clear(self):
         print("end")
+
+    def isStrictMode(self):
+        settings = sublime.load_settings('Preferences.sublime-settings')
+        if settings.has('strict_mode'):
+            return settings.get('strict_mode')
+        settings = sublime.load_settings('Sublime3-Achilles.sublime-settings')
+        return settings.get('strict_mode', True)
 
     def is_visible(self, dirs):
         return True

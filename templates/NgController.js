@@ -20,13 +20,13 @@
              *
              * @constructor
              */
-            var $name = function($$scope, $$state, $$translate) {
+            var $name = function($$scope, $$state) {
 
             };
 
             //Expose this controller definition as a RequireJS module
             //Note: specify the inline annotation explicity
-            return ["$$scope", "$$state", '$$translate', $name];
+            return ["$$scope", "$$state", $name];
 
         });
 

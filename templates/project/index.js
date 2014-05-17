@@ -6,28 +6,21 @@
  *  @date    $date
  *
  */
-(function(require, $, _) {
+(function(require, $$, _) {
 
     var bizBase = require.toUrl('business');
     var baseUrl = bizBase + '/js';
     require.config({
         paths: {
-            'js': baseUrl,
-            'angular-translate': baseUrl + '/libs/angular-translate.min'
-        },
-        shim: {
-            'angular-translate': {
-                deps: ['angular']
-            }
+            'js': baseUrl
         }
     });
 
 
     define([
-        'angular-translate',
         'js/Bootstrap'
     ], function() {
 
     });
 
-}(require, $, _));
+}(require, $$, _));

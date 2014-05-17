@@ -12,10 +12,10 @@
     //specify each feature module here explicitly
     define([],
         function() {
-            var appName = '$moduleName';
+            var appName = '$project';
             var args = Array.prototype.slice.call(arguments, 0);
 
-            var dependsModules = ['ui.router', 'pascalprecht.translate'];
+            var dependsModules = ['ui.router'];
 
             _.each(args, function(module) {
                 if (module.name) {
@@ -84,35 +84,6 @@
                     });
 
                     $$urlRouterProvider.otherwise(defaultState);
-                }
-            ]);
-
-            //config the i18n stuff
-
-            var languages = {};
-
-            _.each(args, function(feaModule) {
-                if (!feaModule.lang) {
-                    return;
-                }
-
-                _.each(feaModule.lang, function(value, key) {
-                    if (!languages[key]) {
-                        languages[key] = {};
-                    }
-
-                    _.extend(languages[key], value);
-                });
-
-            });
-
-            app.config(['$$translateProvider',
-                function($$translateProvider) {
-                    _.each(languages, function(value, key) {
-                        $$translateProvider.translations(key, value);
-                    });
-
-                    $$translateProvider.preferredLanguage('en');
                 }
             ]);
 

@@ -3,7 +3,7 @@
     "id": "achilles_side_bar",
     "children": [{
         "caption": "New ngProject...",
-        "command": "achilles_side_bar_add_skeleton",
+        "command": "achilles_side_bar_add_project",
         "args": {
             "dirs": []
         }

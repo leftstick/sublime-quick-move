@@ -2,6 +2,7 @@ import sublime
 from os.path import dirname, realpath
 from os.path import isdir
 from os import makedirs
+import os
 
 class Generator():
 
@@ -39,7 +40,7 @@ class Generator():
     def handle_template(self, tplStr, outputDir, input_string, fileName):
         self.clear()
 
-    def handle_structure(self, outputDir, input_string, templatePath):
+    def handle_structure(self, tpl, input_string):
         self.clear()
 
     def get_input_on_done(self, outputDir, handle_template, extension):
@@ -65,23 +66,36 @@ class Generator():
 
         def on_done(input_string):
             if not input_string:
-                self.clear()
                 return
             if not input_string.strip():
-                self.clear()
                 return
-            dirName = input_string.strip()
-            dirPath = outputDir + '/' + dirName
+            outDirName = input_string.strip()
+            outDirPath = outputDir + '/' + outDirName
 
-            if isdir(dirPath):
-                self.clear()
+            if isdir(outDirPath):
                 return
             
-            makedirs(dirPath)
+            makedirs(outDirPath)
 
             templatePath = sublime.packages_path() + '/Sublime3-Achilles' + '/templates/' + templateType
 
-            handle_structure(dirPath, dirName, templatePath)
+            for dirpath, dirnames, filenames in os.walk(templatePath):
+                extraPath = dirpath[(len(templatePath)):]
+
+                for name in filenames:
+                    if not isdir(outDirPath + '/' + extraPath):
+                        makedirs(outDirPath + '/' + extraPath)
+                    
+                    if name.startswith('.'):
+                        continue
+
+                    input = open(dirpath + '/' + name, mode='r', encoding='utf-8')
+                    tplStr = input.read()
+                    
+                    dirStr = handle_structure(tplStr, outDirName)
+
+                    outputFile = open(outDirPath + '/' + extraPath +'/' + name, mode='w', encoding='utf-8')
+                    outputFile.write(dirStr)
 
         return on_done
 

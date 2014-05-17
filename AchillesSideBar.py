@@ -203,39 +203,14 @@ class AchillesSideBarAddProjectCommand(Generator, SettingsManager, sublime_plugi
     def get_template_type(self):
         return 'project'
 
-    def handle_structure(self, outputDir, input_string, templatePath):
-        for dirpath, dirnames, filenames in os.walk(templatePath):
-            extraPath = dirpath[(len(templatePath)):]
-
-            self.emptyFolderOut(outputDir, extraPath, filenames)
-
-            for name in filenames:
-                self.templateOut(input_string, outputDir, extraPath, dirpath, name)
-
-    def templateOut(self, input_string, outputDir, extraPath, templateFullPath, fileName):
-        input = open(templateFullPath + '/' + fileName, mode='r', encoding='utf-8')
-        tpl = Template(input.read())
+    def handle_structure(self, tplStr, input_string):
+        tpl = Template(tplStr)
         date = datetime.datetime.now()
         dirStr = tpl.substitute(project=input_string, user=getpass.getuser(), date=calendar.month_name[date.month]+' '+str(date.day)+'th, '+str(date.year))
-
-        if not isdir(outputDir + '/' + extraPath):
-            makedirs(outputDir + '/' + extraPath)
-        
-        if fileName.startswith('.'):
-            return
-        outputFile = open(outputDir + '/' + extraPath +'/' + fileName, mode='w', encoding='utf-8')
-        outputFile.write(dirStr)
-
-    def emptyFolderOut(self, outputDir, extraPath, filenames):
-        if len(filenames) > 0:
-            return
-
-        if not isdir(outputDir + '/' + extraPath):
-            makedirs(outputDir + '/' + extraPath)
+        return dirStr
 
     def run(self, dirs):
         self.show_structure_input_panel(dirs)
-
     
     def is_visible(self, dirs):
         if self.isStrictMode():

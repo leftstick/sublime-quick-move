@@ -16,7 +16,7 @@ sublime-quick-move is a file system operation plugin for sublime text 3.
 ### [Package Control](https://github.com/wbond/sublime_package_control) (Recommended)
 - `command`-`shift`-`p` or `control`-`shift`-`p` in Linux/Windows
 - type `install package`, select `Package Control: Install Package`
-- type `quick move`, select `sublime-quick-move`
+- type `quick move`, select `quick_move_copy`
 
 ### Manually
 Clone or copy this repository into the `packages` directory. By default, the Package directory is located at:

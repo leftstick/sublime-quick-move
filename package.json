@@ -1,0 +1,22 @@
+{
+  "name": "quick-move-copy",
+  "version": "1.0.0",
+  "description": "A sublime text 3 plugin for quickly move/copy file/directory to another location on local machine",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leftstick/sublime-quick-move.git"
+  },
+  "keywords": [
+    "sublime",
+    "plugin"
+  ],
+  "author": "Howard.Zuo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leftstick/sublime-quick-move/issues"
+  },
+  "homepage": "https://github.com/leftstick/sublime-quick-move"
+}

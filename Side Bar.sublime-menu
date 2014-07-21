@@ -1,50 +1,13 @@
 [{
-    "caption": "Achilles",
-    "id": "achilles_side_bar",
-    "children": [{
-        "caption": "New ngProject...",
-        "command": "achilles_side_bar_add_project",
-        "args": {
-            "dirs": []
-        }
-    },{
-        "caption": "New ngFeature...",
-        "command": "achilles_side_bar_add_feature",
-        "args": {
-            "dirs": []
-        }
-    },{
-        "caption": "New ngController...",
-        "command": "achilles_side_bar_add_ng_ctrl",
-        "args": {
-            "dirs": []
-        }
-    }, {
-        "caption": "New ngDirective...",
-        "command": "achilles_side_bar_add_ng_dir",
-        "args": {
-            "dirs": []
-        }
-    }, {
-        "caption": "New ngFactory...",
-        "command": "achilles_side_bar_add_ng_factory",
-        "args": {
-            "dirs": []
-        }
-    }, {
-        "caption": "New ngService...",
-        "command": "achilles_side_bar_add_ng_service",
-        "args": {
-            "dirs": []
-        }
-    }, {
-        "caption": "New ngLang...",
-        "command": "achilles_side_bar_add_lang",
-        "args": {
-            "dirs": []
-        }
-    }, {
-        "caption": "-",
-        "id": "achilles-end"
-    }]
+    "caption": "Move to...",
+    "command": "quick_move_to",
+     "args": {
+            "paths": []
+     }
+},{
+    "caption": "Copy to...",
+    "command": "quick_copy_to",
+     "args": {
+            "paths": []
+     }
 }]

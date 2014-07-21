@@ -1,30 +1,30 @@
-# Sublime3-Achilles
+## sublime-quick-move
 
-A toolkit for Achilles development based on sublime text 3
+sublime-quick-move is a file system operation plugin for sublime text 3.
+> Node: This plugin was not tested in sublime text 2.
 
-## Description
 
-* Provides the way to easily create the angular based skeleton as Achilles application
-* Provides the way to easily create the angular based controller
-* Provides the way to easily create the angular based directive
-* Provides the way to easily create the angular based factory
-* Provides the way to easily create the angular based service
-* Provides the way to easily create the language file
+![](https://raw.githubusercontent.com/leftstick/sublime-quick-move/master/docs/img/example.png)
 
-## Installation
+## Features
+- Quickly move file/directory to another location on the local machine
+- Quickly copy file/directory to another location on the local machine
 
-### Git Clone
 
-Clone this repository in to the Sublime Text 2 "Packages" directory, which is located where ever the "Preferences" -> "Browse Packages" option in sublime takes you to.
+## Install
+
+### [Package Control](https://github.com/wbond/sublime_package_control) (Recommended)
+- `command`-`shift`-`p` or `control`-`shift`-`p` in Linux/Windows
+- type `install package`, select `Package Control: Install Package`
+- type `quick move`, select `sublime-quick-move`
+
+### Manually
+Clone or copy this repository into the `packages` directory. By default, the Package directory is located at:
+
+- OS X: ~/Library/Application Support/Sublime Text 3/Packages/
+- Windows: %APPDATA%/Roaming/Sublime Text 3/Packages/
+- Linux: ~/.config/sublime-text-3/Packages/
 
 ## License
 
-All of Sublime3-Achilles is licensed under the MIT license.
-
-Copyright (c) 2014 Howard Zuo <leftstick@qq.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[MIT License](http://en.wikipedia.org/wiki/MIT_License)

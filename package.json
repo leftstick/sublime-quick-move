@@ -1,6 +1,6 @@
 {
   "name": "quick-move-copy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A sublime text 3 plugin for quickly move/copy file/directory to another location on local machine",
   "directories": {
     "doc": "docs"

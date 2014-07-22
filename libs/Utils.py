@@ -1,22 +1,18 @@
 import sublime
-from os.path import expanduser
+import os.path
 
-PLUGIN_NAME = 'sublime-quick-move'
-
-def separator():
-    separator = '/'
-    if sublime.platform() == "windows":
-        separator = '\\'
-    return separator
-
-def getFilename(fullpath):
-    return fullpath[fullpath.rfind(separator()) + 1:]
+def getBaseName(fullpath):
+    return os.path.basename(fullpath)
 
 def oneThingSelected(paths):
     return len(paths) == 1
 
-def getPluginDir():
-    return sublime.packages_path() + separator() + PLUGIN_NAME
+def removeNonPathEnd(path):
+    return path.rstrip('\\/')
 
-def getHome():
-    return expanduser('~')
+def getParent(path):
+    return os.path.dirname(path)
+
+def revert(view):
+    while view.is_dirty():
+        view.run_command('undo');

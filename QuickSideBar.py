@@ -1,5 +1,5 @@
 import sublime, sublime_plugin
-import os.path
+from os.path import join, isfile, isdir
 import time
 import shutil
 from .libs import Utils as utils
@@ -16,19 +16,19 @@ class QuickMoveToCommand(Operation, sublime_plugin.WindowCommand):
         
         srcDir = utils.getParent(src)
 
-        isSrcFile = os.path.isfile(src)
+        isSrcFile = isfile(src)
 
         if srcDir == dest:
             sublime.status_message('nothing to be moved')
             return
 
-        destPath = os.path.join(dest, utils.getBaseName(src))
+        destPath = join(dest, utils.getBaseName(src))
         if isSrcFile:
-            if os.path.isfile(destPath):
+            if isfile(destPath):
                 sublime.error_message(destPath + ' already exist!')
                 return
         else:
-            if os.path.isdir(destPath):
+            if isdir(destPath):
                 sublime.error_message(destPath + ' already exist!')
                 return
 
@@ -54,15 +54,15 @@ class QuickCopyToCommand(Operation, sublime_plugin.WindowCommand):
 
     
     def doOperation(self, src, dest, views):
-        isSrcFile = os.path.isfile(src)
+        isSrcFile = isfile(src)
 
-        dest = os.path.join(dest, utils.getBaseName(src))
+        dest = join(dest, utils.getBaseName(src))
         if isSrcFile:
-            if os.path.isfile(dest):
+            if isfile(dest):
                 dest = dest + '_' + str(time.time())
             copyMethod =  shutil.copy
         else:
-            if os.path.isdir(dest):
+            if isdir(dest):
                 dest = dest + '_' + str(time.time())
             copyMethod = shutil.copytree
             

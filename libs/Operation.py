@@ -1,6 +1,7 @@
 import sublime
 from . import Utils as utils
-import os, os.path
+from os.path import isfile, isdir
+import os
 import shutil
 
 class Operation():
@@ -15,11 +16,11 @@ class Operation():
         def operDone(arg):
 
             dest = utils.removeNonPathEnd(arg)
-            isSrcFile = os.path.isfile(src)
+            isSrcFile = isfile(src)
 
             newlyCreated = False
 
-            if not os.path.isdir(dest):
+            if not isdir(dest):
                 try:
                     os.makedirs(dest)
                     newlyCreated = True

@@ -13,12 +13,25 @@ sublime-quick-move is a file system operation plugin for sublime text 3.
 
 ## Install
 
-### Manually
-Clone or copy this repository into the `packages` directory. By default, the Package directory is located at:
+### Mac OS X ###
 
-- OS X: ~/Library/Application Support/Sublime Text 3/Packages/
-- Windows: %APPDATA%/Roaming/Sublime Text 3/Packages/
-- Linux: ~/.config/sublime-text-3/Packages/
+```Shell
+git clone https://github.com/leftstick/sublime-quick-move.git ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/sublime-quick-move
+```
+
+### Linux ###
+
+```Shell
+git clone https://github.com/leftstick/sublime-quick-move.git ~/.config/sublime-text-3/Packages/sublime-quick-move
+```
+
+### Windows ###
+
+#### Git hash ####
+
+```Shell
+git clone https://github.com/leftstick/sublime-quick-move.git ~/AppData/Roaming/Sublime\ Text\ 3/Packages/sublime-quick-move
+```
 
 ## License
 
